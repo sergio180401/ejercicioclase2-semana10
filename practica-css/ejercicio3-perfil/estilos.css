@@ -1,0 +1,177 @@
+/* ===== GENERAL ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  background: #1b2738;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ===== VISTA CELULAR (por defecto) ===== */
+.tarjeta {
+  width: 100%;
+  max-width: 340px;
+  background: #fdfaf3;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;    /* una parte debajo de la otra */
+}
+
+.lateral {
+  background: linear-gradient(135deg, #b71c1c, #1f6b3a);
+  color: white;
+  text-align: center;
+  padding: 30px 20px 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  border: 4px solid #ffd700;
+  background: #fdfaf3;
+  color: #b71c1c;
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lateral h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.rol {
+  margin: 4px 0 18px;
+  color: #ffd700;
+  font-size: 14px;
+}
+
+.datos {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 14px;
+}
+.datos div {
+  display: flex;
+  flex-direction: column;
+}
+.datos strong {
+  font-size: 20px;
+}
+.datos span {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.detalle {
+  padding: 20px;
+  color: #333;
+}
+
+.detalle h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #b71c1c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detalle p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.etiquetas {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;           /* bajan a otra línea si no caben */
+  gap: 6px;
+}
+.etiquetas li {
+  background: #1f6b3a;
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.enlaces {
+  display: flex;
+  flex-direction: column;    /* botones uno debajo del otro */
+  gap: 8px;
+}
+.enlaces a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: #b71c1c;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.enlaces a:hover {
+  background: #1f6b3a;
+}
+
+.volver {
+  color: #ffd700;
+  text-decoration: none;
+}
+.volver:hover {
+  text-decoration: underline;
+}
+
+/* ===== VISTA PC (pantallas de 768px o más) ===== */
+@media (min-width: 768px) {
+
+  .tarjeta {
+    max-width: 720px;
+    flex-direction: row;     /* las dos partes una al lado de la otra */
+  }
+
+  .lateral {
+    width: 260px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .avatar {
+    width: 130px;
+    height: 130px;
+    font-size: 46px;
+  }
+
+  .detalle {
+    padding: 30px;
+  }
+
+  .enlaces {
+    flex-direction: row;     /* botones en fila */
+  }
+  .enlaces a {
+    flex: 1;
+  }
+}

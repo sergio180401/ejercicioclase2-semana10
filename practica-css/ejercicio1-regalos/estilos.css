@@ -1,0 +1,305 @@
+/* ===== ESCENA ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #2b3f5c, #121a26 70%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 150px;
+  box-sizing: border-box;
+}
+
+.escena {
+  position: relative;
+  width: 900px;
+  height: 680px;
+}
+
+.suelo {
+  position: absolute;
+  bottom: 0;
+  left: -60px;
+  right: -60px;
+  height: 90px;
+  background: #e8eef5;
+  border-radius: 50% 50% 0 0 / 40px 40px 0 0;
+}
+
+/* ===== ÁRBOL ===== */
+.arbol {
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  width: 500px;
+  height: 560px;
+  transform: translateX(-50%);
+}
+
+.capa {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(to bottom, #2fa84f, #146b2e);
+}
+.capa-1 { width: 220px; height: 170px; top: 40px;  z-index: 3; }
+.capa-2 { width: 340px; height: 210px; top: 130px; z-index: 2; }
+.capa-3 { width: 480px; height: 250px; top: 240px; z-index: 1; }
+
+.tronco {
+  position: absolute;
+  left: 50%;
+  top: 490px;
+  width: 70px;
+  height: 70px;
+  transform: translateX(-50%);
+  background: #6b3e1f;
+}
+
+.estrella {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  z-index: 4;
+  background: #ffd700;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+                     50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: latido 1.5s ease-in-out infinite alternate;
+}
+
+.esfera {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  z-index: 5;
+  background: radial-gradient(circle at 30% 30%, #fff 0 15%, var(--c) 45%);
+  animation: brillo 1.6s ease-in-out infinite alternate;
+}
+.e1 { left: 215px; top: 120px; --c: #e53935; }
+.e2 { left: 268px; top: 165px; --c: #fbc02d; animation-delay: .4s; }
+.e3 { left: 200px; top: 240px; --c: #1e88e5; animation-delay: .8s; }
+.e4 { left: 290px; top: 262px; --c: #e53935; animation-delay: .2s; }
+.e5 { left: 160px; top: 305px; --c: #fbc02d; animation-delay: 1s; }
+.e6 { left: 320px; top: 310px; --c: #1e88e5; animation-delay: .6s; }
+.e7 { left: 120px; top: 410px; --c: #e53935; animation-delay: .3s; }
+.e8 { left: 235px; top: 380px; --c: #fbc02d; animation-delay: .9s; }
+.e9 { left: 350px; top: 420px; --c: #1e88e5; animation-delay: .5s; }
+
+@keyframes brillo {
+  from { opacity: .55; }
+  to   { opacity: 1; box-shadow: 0 0 12px var(--c); }
+}
+@keyframes latido {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
+}
+
+/* ===== FILA DE REGALOS (al frente) ===== */
+.regalos {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+/* ===== CAJA SORPRESA (estructura común) ===== */
+.regalo {
+  --ancho: 200px;
+  --alto: 130px;
+  --alto-tapa: 36px;
+  --cinta-ancho: 24px;
+  --color: #f80000;
+  --cinta: rgba(239, 184, 16, 0.85);
+  --patron: none;
+  --patron-tam: auto;
+  --patron-pos: 0 0;
+  --giro: 10deg;
+  --desvio: 10px;
+
+  width: calc(var(--ancho) + 10px);
+  cursor: pointer;
+}
+
+.caja, .tapa {
+  background-color: var(--color);
+  background-image: var(--patron);
+  background-size: var(--patron-tam);
+  background-position: var(--patron-pos);
+  position: relative;        /* position relative */
+  margin: 0 auto;
+}
+
+.caja {
+  width: var(--ancho);
+  height: var(--alto);
+}
+
+.tapa {
+  width: var(--ancho);
+  height: var(--alto-tapa);
+  padding: 0 4px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transition:
+    top ease-out 0.5s,
+    left ease-out 0.5s,
+    transform ease-out 0.5s;
+}
+
+/* Cintas: position absolute */
+.caja span, .tapa span {
+  position: absolute;
+  display: block;
+  background: var(--cinta);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+}
+.caja span:first-child {
+  width: 100%;
+  height: var(--cinta-ancho);
+  left: 0;
+  top: calc(50% - var(--cinta-ancho) / 2);
+}
+.caja span:last-child,
+.tapa span {
+  width: var(--cinta-ancho);
+  height: 100%;
+  top: 0;
+  left: calc(50% - var(--cinta-ancho) / 2);
+}
+
+/* Moño */
+.tapa::before, .tapa::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: calc(var(--cinta-ancho) * 1.1);
+  height: calc(var(--cinta-ancho) * 0.7);
+  border: calc(var(--cinta-ancho) * 0.25) solid var(--cinta);
+  border-radius: 50%;
+}
+.tapa::before {
+  transform-origin: right bottom;
+  transform: translateX(-100%) rotate(-25deg);
+}
+.tapa::after {
+  transform-origin: left bottom;
+  transform: rotate(25deg);
+}
+
+/* Mensaje escondido */
+.promo {
+  position: relative;
+  height: 0;
+  top: 10px;
+  color: white;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: top ease-out 0.7s;
+}
+.promo p {
+  margin: 0;
+  line-height: 1.1;
+  font-size: calc(var(--alto-tapa) * 0.38);
+}
+.promo h2 {
+  margin: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+  font-size: calc(var(--alto-tapa) * 0.55);
+}
+
+/* Efecto hover */
+.regalo:hover .tapa {
+  top: calc(-1 * var(--alto-tapa) - 40px);
+  left: var(--desvio);
+  transform: rotateZ(var(--giro));
+}
+.regalo:hover .promo {
+  top: calc(-1 * var(--alto-tapa) - 8px);
+}
+
+/* ===== LAS 5 CAJAS DIFERENTES ===== */
+
+/* 1. Roja con lunares blancos */
+.r1 {
+  --ancho: 130px;
+  --alto: 90px;
+  --alto-tapa: 28px;
+  --cinta-ancho: 18px;
+  --color: #f80000;
+  --cinta: rgba(239, 184, 16, 0.85);
+  --patron: radial-gradient(white 10%, transparent 15.1%),
+            radial-gradient(white 7%, transparent 15.1%);
+  --patron-tam: 30px 30px;
+  --patron-pos: 0 0, 15px 15px;
+}
+
+/* 2. Verde con rayas diagonales */
+.r2 {
+  --ancho: 170px;
+  --alto: 120px;
+  --alto-tapa: 34px;
+  --cinta-ancho: 22px;
+  --color: #1f8a3b;
+  --cinta: rgba(220, 30, 40, 0.9);
+  --patron: repeating-linear-gradient(45deg,
+              rgba(255, 255, 255, 0.25) 0 8px,
+              transparent 8px 16px);
+  --giro: -10deg;
+  --desvio: -10px;
+}
+
+/* 3. Azul a cuadros */
+.r3 {
+  --ancho: 230px;
+  --alto: 150px;
+  --alto-tapa: 42px;
+  --cinta-ancho: 30px;
+  --color: #1e5bb8;
+  --cinta: rgba(230, 232, 240, 0.9);
+  --patron: conic-gradient(rgba(255, 255, 255, 0.18) 25%, transparent 0 50%,
+                           rgba(255, 255, 255, 0.18) 0 75%, transparent 0);
+  --patron-tam: 30px 30px;
+}
+
+/* 4. Morada con lunares dorados */
+.r4 {
+  --ancho: 160px;
+  --alto: 110px;
+  --alto-tapa: 32px;
+  --cinta-ancho: 20px;
+  --color: #7b2fbf;
+  --cinta: rgba(255, 120, 180, 0.9);
+  --patron: radial-gradient(#ffd54a 15%, transparent 16%);
+  --patron-tam: 20px 20px;
+  --giro: -12deg;
+  --desvio: -10px;
+}
+
+/* 5. Dorada con rayas verticales */
+.r5 {
+  --ancho: 120px;
+  --alto: 80px;
+  --alto-tapa: 26px;
+  --cinta-ancho: 16px;
+  --color: #e0a10a;
+  --cinta: rgba(30, 140, 60, 0.9);
+  --patron: repeating-linear-gradient(90deg,
+              rgba(255, 255, 255, 0.3) 0 6px,
+              transparent 6px 14px);
+  --giro: 14deg;
+}
