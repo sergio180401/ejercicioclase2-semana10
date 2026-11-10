@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica de Navidad - Tarjetas de perfil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="contenedor">
+
+    <!-- CABECERA -->
+    <header id="cabecera">
+      <h1>🎄 Mi página de Navidad</h1>
+      <p>Práctica de HTML y CSS</p>
+    </header>
+
+    <!-- MENÚ: AL HACER CLIC EN TARJETAS CAMBIA EL CONTENIDO -->
+    <nav id="menu" aria-label="Menú principal">
+      <h2>Menú</h2>
+      <a href="#inicio">Inicio</a>
+      <a href="#regalos">Regalos</a>
+      <a href="#arbol">Árbol</a>
+      <a href="#tarjetas">Tarjetas de perfil</a>
+      <a href="#pie">Pie de página</a>
+    </nav>
+
+    <main id="contenido">
+
+      <!-- ESTA VISTA SOLO SE MUESTRA AL ELEGIR 'TARJETAS DE PERFIL' -->
+      <!-- Está antes del inicio para cambiar las vistas con CSS :target y ~ -->
+      <section id="tarjetas" class="vista-tarjetas" aria-label="Tarjetas de perfil">
+        <h2>Mis tarjetas de perfil</h2>
+        <p class="subtitulo-tarjetas">Tres tarjetas inspiradas en el ejemplo de la clase.</p>
+
+        <div class="grupo-tarjetas">
+          <!-- TARJETA 1 -->
+          <article class="property-card perfil-uno">
+            <div class="property-image">
+              <span class="iniciales">CUC</span>
+            </div>
+            <div class="property-description">
+              <h3>Colegio Universitario de Cartago</h3>
+              <p>Administración y Programación de Sitios Web</p>
+            </div>
+            <div class="property-social-icons">Perfil 1</div>
+          </article>
+
+          <!-- TARJETA 2 -->
+          <article class="property-card perfil-dos">
+            <div class="property-image">
+              <span class="iniciales">ES</span>
+            </div>
+            <div class="property-description">
+              <h3>Mi perfil de estudiante</h3>
+              <p>Me gusta aprender a crear páginas web con HTML y CSS.</p>
+            </div>
+            <div class="property-social-icons">Perfil 2</div>
+          </article>
+
+          <!-- TARJETA 3 -->
+          <article class="property-card perfil-tres">
+            <div class="property-image">
+              <span class="iniciales">WEB</span>
+            </div>
+            <div class="property-description">
+              <h3>Mi proyecto web</h3>
+              <p>Diseño de una página navideña con regalos y animaciones.</p>
+            </div>
+            <div class="property-social-icons">Perfil 3</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- VISTA DE NAVIDAD: SE OCULTA CUANDO SE ABRE EL MENÚ TARJETAS -->
+      <section id="inicio" class="vista-navidad">
+        <h2>¡Felices fiestas!</h2>
+        <p class="descripcion-inicio">Descubre un mensaje diferente en cada regalo.</p>
+
+        <div class="navidad" id="regalos">
+          <!-- REGALO 1 -->
+          <div class="regalo rojo" tabindex="0" aria-label="Regalo rojo: felices fiestas">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>¡Felices fiestas!</p><h3>Con cariño ❤️</h3></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+
+          <!-- REGALO 2 -->
+          <div class="regalo azul" tabindex="0" aria-label="Regalo azul: mucha alegría">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>¡Mucha alegría!</p><h3>Para ti 💙</h3></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+
+          <!-- ÁRBOL EN EL CENTRO -->
+          <div class="arbol" id="arbol" role="img" aria-label="Árbol de Navidad con estrella y esferas">
+            <div class="estrella">★</div>
+            <div class="hojas hojas1"></div>
+            <div class="hojas hojas2"></div>
+            <div class="hojas hojas3"></div>
+            <div class="adorno adorno1"></div>
+            <div class="adorno adorno2"></div>
+            <div class="adorno adorno3"></div>
+            <div class="adorno adorno4"></div>
+            <div class="tronco"></div>
+          </div>
+
+          <!-- REGALO 3 -->
+          <div class="regalo morado" tabindex="0" aria-label="Regalo morado: que tus sueños se cumplan">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Que tus sueños</p><h3>se cumplan 💜</h3></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+
+          <!-- REGALO 4 -->
+          <div class="regalo verde" tabindex="0" aria-label="Regalo verde: un año de éxitos">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Un año lleno</p><h3>de éxitos 💚</h3></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+        </div>
+        <p class="indicacion">Pasa el mouse sobre los regalos para abrirlos.</p>
+      </section>
+    </main>
+
+    <footer id="pie">🎅 Feliz Navidad - Práctica de diseño web</footer>
+  </div>
+</body>
+</html>

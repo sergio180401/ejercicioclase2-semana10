@@ -1,0 +1,434 @@
+/* ESTILOS GENERALES */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 25px 12px;
+  background: #e4eee8;
+  font-family: Arial, sans-serif;
+  color: #25352c;
+}
+
+/* ESTRUCTURA DE LA PRÁCTICA */
+#contenedor {
+  width: 700px;
+  max-width: 100%;
+  min-width: 300px;
+  margin: 0 auto;
+  border: 1px solid #b4c9b9;
+  background: #fff;
+}
+
+#cabecera {
+  padding: 18px;
+  text-align: center;
+  background: #247744;
+  color: white;
+}
+
+#cabecera h1 {
+  margin: 0 0 6px;
+  font-size: 25px;
+}
+
+#cabecera p {
+  margin: 0;
+  font-size: 14px;
+}
+
+#menu {
+  float: left;
+  width: 150px;
+  padding: 15px 10px;
+  background: #d9ebdb;
+  min-height: 360px;
+}
+
+#menu h2 {
+  margin: 0 0 15px;
+  font-size: 18px;
+}
+
+#menu a {
+  display: block;
+  padding: 10px 8px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  color: #205837;
+  background: white;
+  border-radius: 4px;
+}
+
+#menu a:hover {
+  background: #bddbc5;
+}
+
+#contenido {
+  float: left;
+  width: calc(100% - 150px);
+  min-height: 360px;
+  padding: 18px 10px;
+  text-align: center;
+  background: #fffdf5;
+}
+
+#contenido h2 {
+  color: #b12d35;
+  margin: 0 0 8px;
+}
+
+#contenido > p {
+  font-size: 13px;
+  margin: 0;
+}
+
+#pie {
+  clear: both;
+  background: #247744;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* REGALOS EN UNA SOLA FILA Y ÁRBOL AL CENTRO */
+.navidad {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 13px;
+  padding: 85px 0 8px;
+}
+
+.regalo {
+  flex: 0 0 75px;
+  width: 75px;
+  position: relative;
+  cursor: pointer;
+  --color-regalo: red;
+  --color-cinta: gold;
+}
+
+.caja,
+.tapa {
+  background:
+    radial-gradient(white 10%, transparent 16%) 0 0 / 25px 25px,
+    radial-gradient(white 7%, transparent 16%) 12px 12px / 25px 25px,
+    var(--color-regalo);
+  position: relative;
+  margin: 0 auto;
+}
+
+.caja {
+  width: 72px;
+  height: 60px;
+}
+
+.tapa {
+  width: 75px;
+  height: 18px;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  box-shadow: 1px 2px 3px #0003;
+  transition: top .5s, left .5s, transform .5s;
+}
+
+.caja span,
+.tapa span {
+  position: absolute;
+  display: block;
+  background: var(--color-cinta);
+}
+
+.caja span:first-child {
+  width: 100%;
+  height: 12px;
+  top: 23px;
+}
+
+.caja span:last-child,
+.tapa span {
+  width: 13px;
+  height: 100%;
+  left: calc(50% - 6.5px);
+}
+
+.rojo { --color-regalo: #e84141; --color-cinta: #ffd24a; }
+.azul { --color-regalo: #3281db; --color-cinta: #ffffff; }
+.morado { --color-regalo: #9456bf; --color-cinta: #ffdb61; }
+.verde { --color-regalo: #32a86c; --color-cinta: #fff088; }
+
+/* CADA REGALO TIENE SU PROPIO MENSAJE */
+.promo {
+  position: absolute;
+  bottom: 82px;
+  left: 50%;
+  width: 115px;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  transition: opacity .4s, transform .4s;
+}
+
+.promo p {
+  margin: 0 0 4px;
+  font-size: 11px;
+}
+
+.promo h3 {
+  margin: 0;
+  font-size: 12px;
+  color: #a82d36;
+}
+
+.regalo:hover .tapa,
+.regalo:focus .tapa {
+  top: -40px;
+  left: 5px;
+  transform: rotate(10deg);
+}
+
+.regalo:hover .promo,
+.regalo:focus .promo {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-22px);
+}
+
+/* ÁRBOL HECHO SOLO CON CSS */
+.arbol {
+  position: relative;
+  flex: 0 0 135px;
+  width: 135px;
+  height: 185px;
+}
+
+.estrella {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  color: #efb829;
+}
+
+.hojas {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-bottom-style: solid;
+  border-bottom-color: #13823d;
+}
+
+.hojas1 {
+  top: 24px;
+  border-left-width: 36px;
+  border-right-width: 36px;
+  border-bottom-width: 65px;
+  z-index: 3;
+}
+
+.hojas2 {
+  top: 62px;
+  border-left-width: 50px;
+  border-right-width: 50px;
+  border-bottom-width: 76px;
+  border-bottom-color: #17974a;
+  z-index: 2;
+}
+
+.hojas3 {
+  top: 102px;
+  border-left-width: 66px;
+  border-right-width: 66px;
+  border-bottom-width: 64px;
+  z-index: 1;
+}
+
+.tronco {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 30px;
+  background: #89603d;
+}
+
+.adorno {
+  position: absolute;
+  z-index: 4;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.adorno1 { top: 69px; left: 63px; background: #f14a53; }
+.adorno2 { top: 107px; left: 39px; background: #f7d34d; }
+.adorno3 { top: 112px; right: 37px; background: #60a6ed; }
+.adorno4 { top: 146px; left: 74px; background: #ed99df; }
+
+.indicacion {
+  padding: 15px 0 0;
+  color: #536b5b;
+}
+
+/* EN CELULAR: MENÚ ARRIBA Y CONTENIDO ABAJO */
+@media (max-width: 650px) {
+  #menu, #contenido {
+    float: none;
+    width: 100%;
+    min-height: 0;
+  }
+
+  #menu a {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+
+  #contenido {
+    overflow-x: auto;
+  }
+
+  .navidad {
+    width: max-content;
+    min-width: 100%;
+  }
+}
+
+
+
+/* VISTAS DEL MENÚ - SOLO HTML Y CSS, SIN JAVASCRIPT */
+.vista-tarjetas {
+  display: none;
+}
+
+/* Al entrar a #tarjetas, aparecen las tres tarjetas */
+.vista-tarjetas:target {
+  display: block;
+}
+
+/* Al abrir tarjetas, se ocultan los regalos y el árbol */
+.vista-tarjetas:target ~ .vista-navidad {
+  display: none;
+}
+
+.descripcion-inicio {
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+/* TRES TARJETAS INSPIRADAS EN LA CLASE property-card */
+.vista-tarjetas h2 {
+  font-size: 21px;
+}
+
+.subtitulo-tarjetas {
+  font-size: 13px;
+  color: #5c665b;
+  margin: 5px 0 20px;
+}
+
+.grupo-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.property-card {
+  min-width: 0;
+  overflow: hidden;
+  background: white;
+  border-radius: 9px;
+  box-shadow: 0 3px 10px #0002;
+  border: 1px solid #e1e7df;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 17px #0003;
+}
+
+.property-image {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(130deg, #206c48, #54a678);
+}
+
+.iniciales {
+  width: 66px;
+  height: 66px;
+  border: 2px solid #fff9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 19px;
+  font-weight: 700;
+  background: #ffffff2a;
+}
+
+.perfil-dos .property-image {
+  background: linear-gradient(130deg, #2f65a0, #6ca6da);
+}
+
+.perfil-tres .property-image {
+  background: linear-gradient(130deg, #923b58, #da829b);
+}
+
+.property-description {
+  padding: 12px 10px;
+  flex-grow: 1;
+}
+
+.property-description h3 {
+  color: #28543c;
+  font-size: 14px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.property-description p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #4e5e50;
+}
+
+.property-social-icons {
+  padding: 10px;
+  border-top: 1px solid #e3e8e2;
+  font-size: 11px;
+  color: #64796a;
+}
+
+/* EN MOVIL, EL MENÚ APARECE ARRIBA Y LAS TARJETAS SE APILAN */
+@media (max-width: 650px) {
+  .grupo-tarjetas {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+    margin: 0 auto;
+  }
+
+  .property-image {
+    height: 115px;
+  }
+}
