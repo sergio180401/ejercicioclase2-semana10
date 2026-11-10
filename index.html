@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica de CSS - Navidad</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div id="contenedor">
+
+    <div id="cabecera">
+      <h1>Cajas sorpresa navideñas</h1>
+    </div>
+
+    <div id="menu">
+      <h3>Regalos</h3>
+      <ul>
+        <li><a href="#">Rojo</a></li>
+        <li><a href="#">Verde</a></li>
+        <li><a href="#">Azul</a></li>
+        <li><a href="#">Morado</a></li>
+        <li><a href="#">Dorado</a></li>
+      </ul>
+    </div>
+
+    <div id="contenido">
+
+      <!-- Panel de Sergio (aparece al hacer clic en su nombre) -->
+      <div class="panel" id="sergio">
+        <a class="cerrar" href="#">✕ Cerrar</a>
+        <h2>Trabajos de Sergio</h2>
+        <a class="trabajo" href="sergio/ejercicio1-regalos/index.html">
+          <strong>Ejercicio 1 · Cajas sorpresa</strong>
+          <span>5 regalos con position relative / absolute frente al árbol</span>
+        </a>
+        <a class="trabajo" href="sergio/ejercicio2-estructura/index.html">
+          <strong>Ejercicio 2 · Estructura</strong>
+          <span>Cabecera, menú, contenido y pie con float y clear</span>
+        </a>
+        <a class="trabajo" href="sergio/ejercicio3-perfil/index.html">
+          <strong>Ejercicio 3 · Tarjeta de perfil</strong>
+          <span>Vista para celular y para PC con Flexbox y media queries</span>
+        </a>
+      </div>
+
+      <!-- Panel de Rodrigo (aparece al hacer clic en su nombre) -->
+      <div class="panel" id="rodrigo">
+        <a class="cerrar" href="#">✕ Cerrar</a>
+        <h2>Trabajos de Rodrigo</h2>
+        <a class="trabajo" href="rodrigo/ejercicio1-regalos/index.html">
+          <strong>Ejercicio 1 · Cajas sorpresa</strong>
+          <span>5 regalos con position relative / absolute frente al árbol</span>
+        </a>
+        <a class="trabajo" href="rodrigo/ejercicio2-estructura/index.html">
+          <strong>Ejercicio 2 · Estructura</strong>
+          <span>Cabecera, menú, contenido y pie con float y clear</span>
+        </a>
+        <a class="trabajo" href="rodrigo/ejercicio3-perfil/index.html">
+          <strong>Ejercicio 3 · Tarjeta de perfil</strong>
+          <span>Vista para celular y para PC con Flexbox y media queries</span>
+        </a>
+      </div>
+
+      <!-- Panel de Jesús (aparece al hacer clic en su nombre) -->
+      <div class="panel" id="jesus">
+        <a class="cerrar" href="#">✕ Cerrar</a>
+        <h2>Trabajos de Jesús</h2>
+        <a class="trabajo" href="jesus/ejercicio1-regalos/index.html">
+          <strong>Ejercicio 1 · Cajas sorpresa</strong>
+          <span>5 regalos con position relative / absolute frente al árbol</span>
+        </a>
+        <a class="trabajo" href="jesus/ejercicio2-estructura/index.html">
+          <strong>Ejercicio 2 · Estructura</strong>
+          <span>Cabecera, menú, contenido y pie con float y clear</span>
+        </a>
+        <a class="trabajo" href="jesus/ejercicio3-perfil/index.html">
+          <strong>Ejercicio 3 · Tarjeta de perfil</strong>
+          <span>Vista para celular y para PC con Flexbox y media queries</span>
+        </a>
+      </div>
+
+      <div class="escena">
+
+        <div class="suelo"></div>
+
+        <div class="arbol">
+          <div class="estrella"></div>
+          <div class="capa capa-1"></div>
+          <div class="capa capa-2"></div>
+          <div class="capa capa-3"></div>
+          <div class="tronco"></div>
+          <span class="esfera e1"></span>
+          <span class="esfera e2"></span>
+          <span class="esfera e3"></span>
+          <span class="esfera e4"></span>
+          <span class="esfera e5"></span>
+          <span class="esfera e6"></span>
+          <span class="esfera e7"></span>
+          <span class="esfera e8"></span>
+          <span class="esfera e9"></span>
+        </div>
+
+        <div class="regalos">
+          <div class="regalo r1">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Ho, ho, ho</p><h2>¡Regalo!</h2></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+          <div class="regalo r2">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Para ti</p><h2>¡Sorpresa!</h2></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+          <div class="regalo r3">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Felices Fiestas</p><h2>NAVIDAD 2026</h2></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+          <div class="regalo r4">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Con cariño</p><h2>Paz y amor</h2></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+          <div class="regalo r5">
+            <div class="tapa"><span></span></div>
+            <div class="promo"><p>Un deseo</p><h2>¡Feliz 2027!</h2></div>
+            <div class="caja"><span></span><span></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="integrantes">
+      <h3>Integrantes</h3>
+      <ul>
+        <li><a href="#sergio"><span class="inicial">S</span>Sergio</a></li>
+        <li><a href="#rodrigo"><span class="inicial">R</span>Rodrigo</a></li>
+        <li><a href="#jesus"><span class="inicial">J</span>Jesús</a></li>
+      </ul>
+      <p class="ayuda">Selecciona un nombre para ver sus trabajos.</p>
+    </div>
+
+    <div id="pie">
+      <p>Práctica de CSS · Sergio, Rodrigo y Jesús · CUC</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

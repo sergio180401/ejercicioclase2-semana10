@@ -1,0 +1,466 @@
+/* ===== ESTRUCTURA DE LA PÁGINA ===== */
+body {
+  margin: 0;
+  padding: 30px 0;
+  background: #1b2738;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#contenedor {
+  width: 880px;              /* 150 menú + 550 contenido + 180 integrantes */
+  margin: 0 auto;            /* centra el contenedor */
+  background: #fdfaf3;
+}
+
+#cabecera {
+  background: #b71c1c;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+#cabecera h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+#menu {
+  float: left;
+  width: 150px;
+  box-sizing: border-box;    /* el padding queda dentro de los 150px */
+  padding: 15px;
+  background: #1f6b3a;
+  min-height: 460px;
+}
+#menu h3 {
+  margin: 0 0 10px;
+  color: #ffd700;
+}
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#menu a {
+  display: block;
+  padding: 6px 0;
+  color: white;
+  text-decoration: none;
+}
+#menu a:hover {
+  color: #ffd700;
+}
+
+#contenido {
+  float: left;
+  width: 550px;
+  box-sizing: border-box;    /* el padding queda dentro de los 550px */
+  padding: 10px;
+  background: radial-gradient(circle at 50% 20%, #2b3f5c, #121a26 70%);
+  position: relative;        /* referencia para los paneles */
+}
+
+#pie {
+  clear: both;               /* se coloca debajo de los dos floats */
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+#pie p {
+  margin: 0;
+}
+
+/* ===== COLUMNA DERECHA: INTEGRANTES ===== */
+#integrantes {
+  float: left;
+  width: 180px;
+  box-sizing: border-box;
+  padding: 15px;
+  background: #1f6b3a;
+  min-height: 460px;
+}
+#integrantes h3 {
+  margin: 0 0 10px;
+  color: #ffd700;
+}
+#integrantes ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#integrantes a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+#integrantes a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.inicial {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffd700;
+  color: #b71c1c;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ayuda {
+  margin: 15px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Nombre seleccionado resaltado */
+#contenedor:has(#sergio:target) a[href="#sergio"],
+#contenedor:has(#rodrigo:target) a[href="#rodrigo"],
+#contenedor:has(#jesus:target) a[href="#jesus"] {
+  background: #b71c1c;
+}
+
+/* ===== PANELES DE CADA INTEGRANTE ===== */
+.panel {
+  display: none;             /* ocultos hasta que se seleccionan */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 20;
+  padding: 25px;
+  border-radius: 8px;
+  background: rgba(18, 26, 38, 0.96);
+  color: white;
+}
+.panel:target {
+  display: block;            /* se muestra el del nombre seleccionado */
+}
+.panel h2 {
+  margin: 0 0 20px;
+  color: #ffd700;
+}
+.cerrar {
+  float: right;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+.cerrar:hover {
+  color: white;
+}
+.trabajo {
+  display: block;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-left: 5px solid #b71c1c;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s, border-color 0.3s;
+}
+.trabajo:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-left-color: #ffd700;
+}
+.trabajo strong {
+  display: block;
+  margin-bottom: 4px;
+}
+.trabajo span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===== ESCENA ===== */
+.escena {
+  position: relative;
+  width: 530px;
+  height: 440px;
+}
+
+.suelo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: #e8eef5;
+  border-radius: 50% 50% 0 0 / 25px 25px 0 0;
+}
+
+/* ===== ÁRBOL ===== */
+.arbol {
+  position: absolute;
+  left: 50%;
+  bottom: 42px;
+  width: 300px;
+  height: 336px;
+  transform: translateX(-50%);
+}
+
+.capa {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(to bottom, #2fa84f, #146b2e);
+}
+.capa-1 { width: 132px; height: 102px; top: 24px;  z-index: 3; }
+.capa-2 { width: 204px; height: 126px; top: 78px;  z-index: 2; }
+.capa-3 { width: 288px; height: 150px; top: 144px; z-index: 1; }
+
+.tronco {
+  position: absolute;
+  left: 50%;
+  top: 294px;
+  width: 42px;
+  height: 42px;
+  transform: translateX(-50%);
+  background: #6b3e1f;
+}
+
+.estrella {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  z-index: 4;
+  background: #ffd700;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+                     50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: latido 1.5s ease-in-out infinite alternate;
+}
+
+.esfera {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  z-index: 5;
+  background: radial-gradient(circle at 30% 30%, #fff 0 15%, var(--c) 45%);
+  animation: brillo 1.6s ease-in-out infinite alternate;
+}
+.e1 { left: 129px; top: 72px;  --c: #e53935; }
+.e2 { left: 161px; top: 99px;  --c: #fbc02d; animation-delay: .4s; }
+.e3 { left: 120px; top: 144px; --c: #1e88e5; animation-delay: .8s; }
+.e4 { left: 174px; top: 157px; --c: #e53935; animation-delay: .2s; }
+.e5 { left: 96px;  top: 183px; --c: #fbc02d; animation-delay: 1s; }
+.e6 { left: 192px; top: 186px; --c: #1e88e5; animation-delay: .6s; }
+.e7 { left: 72px;  top: 246px; --c: #e53935; animation-delay: .3s; }
+.e8 { left: 141px; top: 228px; --c: #fbc02d; animation-delay: .9s; }
+.e9 { left: 210px; top: 252px; --c: #1e88e5; animation-delay: .5s; }
+
+@keyframes brillo {
+  from { opacity: .55; }
+  to   { opacity: 1; box-shadow: 0 0 8px var(--c); }
+}
+@keyframes latido {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
+}
+
+/* ===== FILA DE REGALOS ===== */
+.regalos {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+/* ===== CAJA SORPRESA ===== */
+.regalo {
+  --ancho: 100px;
+  --alto: 70px;
+  --alto-tapa: 20px;
+  --cinta-ancho: 14px;
+  --color: #f80000;
+  --cinta: rgba(239, 184, 16, 0.85);
+  --patron: none;
+  --patron-tam: auto;
+  --patron-pos: 0 0;
+  --giro: 10deg;
+  --desvio: 8px;
+
+  width: calc(var(--ancho) + 8px);
+  cursor: pointer;
+}
+
+.caja, .tapa {
+  background-color: var(--color);
+  background-image: var(--patron);
+  background-size: var(--patron-tam);
+  background-position: var(--patron-pos);
+  position: relative;
+  margin: 0 auto;
+}
+
+.caja {
+  width: var(--ancho);
+  height: var(--alto);
+}
+
+.tapa {
+  width: var(--ancho);
+  height: var(--alto-tapa);
+  padding: 0 4px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transition:
+    top ease-out 0.5s,
+    left ease-out 0.5s,
+    transform ease-out 0.5s;
+}
+
+.caja span, .tapa span {
+  position: absolute;
+  display: block;
+  background: var(--cinta);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+}
+.caja span:first-child {
+  width: 100%;
+  height: var(--cinta-ancho);
+  left: 0;
+  top: calc(50% - var(--cinta-ancho) / 2);
+}
+.caja span:last-child,
+.tapa span {
+  width: var(--cinta-ancho);
+  height: 100%;
+  top: 0;
+  left: calc(50% - var(--cinta-ancho) / 2);
+}
+
+.tapa::before, .tapa::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: calc(var(--cinta-ancho) * 1.1);
+  height: calc(var(--cinta-ancho) * 0.7);
+  border: calc(var(--cinta-ancho) * 0.25) solid var(--cinta);
+  border-radius: 50%;
+}
+.tapa::before {
+  transform-origin: right bottom;
+  transform: translateX(-100%) rotate(-25deg);
+}
+.tapa::after {
+  transform-origin: left bottom;
+  transform: rotate(25deg);
+}
+
+.promo {
+  position: relative;
+  height: 0;
+  top: 10px;
+  opacity: 0;                /* oculto hasta el hover */
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  transition: top ease-out 0.7s, opacity ease-out 0.7s;
+}
+.promo p {
+  margin: 0;
+  line-height: 1.1;
+  font-size: 11px;
+}
+.promo h2 {
+  margin: 0;
+  line-height: 1.1;
+  font-size: 15px;
+}
+
+.regalo:hover .tapa {
+  top: calc(-1 * var(--alto-tapa) - 30px);
+  left: var(--desvio);
+  transform: rotateZ(var(--giro));
+}
+.regalo:hover .promo {
+  top: calc(-1 * var(--alto-tapa) - 12px);
+  opacity: 1;
+}
+
+/* ===== LAS 5 CAJAS ===== */
+.r1 {
+  --ancho: 74px;
+  --alto: 54px;
+  --alto-tapa: 17px;
+  --cinta-ancho: 11px;
+  --color: #f80000;
+  --cinta: rgba(239, 184, 16, 0.85);
+  --patron: radial-gradient(white 10%, transparent 15.1%),
+            radial-gradient(white 7%, transparent 15.1%);
+  --patron-tam: 18px 18px;
+  --patron-pos: 0 0, 9px 9px;
+}
+
+.r2 {
+  --ancho: 96px;
+  --alto: 72px;
+  --alto-tapa: 20px;
+  --cinta-ancho: 13px;
+  --color: #1f8a3b;
+  --cinta: rgba(220, 30, 40, 0.9);
+  --patron: repeating-linear-gradient(45deg,
+              rgba(255, 255, 255, 0.25) 0 5px,
+              transparent 5px 10px);
+  --giro: -10deg;
+  --desvio: -8px;
+}
+
+.r3 {
+  --ancho: 130px;
+  --alto: 90px;
+  --alto-tapa: 25px;
+  --cinta-ancho: 18px;
+  --color: #1e5bb8;
+  --cinta: rgba(230, 232, 240, 0.9);
+  --patron: conic-gradient(rgba(255, 255, 255, 0.18) 25%, transparent 0 50%,
+                           rgba(255, 255, 255, 0.18) 0 75%, transparent 0);
+  --patron-tam: 18px 18px;
+}
+
+.r4 {
+  --ancho: 90px;
+  --alto: 66px;
+  --alto-tapa: 19px;
+  --cinta-ancho: 12px;
+  --color: #7b2fbf;
+  --cinta: rgba(255, 120, 180, 0.9);
+  --patron: radial-gradient(#ffd54a 15%, transparent 16%);
+  --patron-tam: 12px 12px;
+  --giro: -12deg;
+  --desvio: -8px;
+}
+
+.r5 {
+  --ancho: 68px;
+  --alto: 48px;
+  --alto-tapa: 16px;
+  --cinta-ancho: 10px;
+  --color: #e0a10a;
+  --cinta: rgba(30, 140, 60, 0.9);
+  --patron: repeating-linear-gradient(90deg,
+              rgba(255, 255, 255, 0.3) 0 4px,
+              transparent 4px 8px);
+  --giro: 14deg;
+}
