@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Navideña Fija</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- CONTENEDOR PRINCIPAL FIJO DE 700PX -->
+    <div class="contenedor-principal">
+
+        <!-- 1. CABECERA (Ancho total del contenedor principal, color rojo) -->
+        <header class="cabecera">
+            <h1>Mi Cabecera Navideña</h1>
+        </header>
+
+        <!-- CONTENEDOR CENTRAL FLEX (Para poner el menu y el arbol lado a lado) -->
+        <div class="seccion-central">
+
+            <!-- 2. MENU LATERAL (Izquierda, 150px, color azul) -->
+            <aside class="menu-lateral">
+                <nav>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Ejercicio 1</a></li>
+                        <li><a href="#">Ejercicio 3</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- 3. CONTENEDOR DEL aRBOL Y REGALOS (Derecha, 550px, con tu fondo e interactividad) -->
+            <main class="zona-arbol">
+                <!-- Aqui dentro se mantiene intacto el contenedor de tus 5 regalos -->
+                <div class="contenedor-regalos">
+                    <!-- Regalo 1 -->
+                    <div class="regalo regalo-rojo">
+                        <div class="tapa"><span></span></div>
+                        <div class="promo"><p>Pasar el cuatrimestre</p><h2>NAVIDAD 2026</h2></div>
+                        <div class="caja"><span></span><span></span></div>
+                    </div>
+                    <!-- Regalo 2 -->
+                    <div class="regalo2 regalo-azul">
+                        <div class="tapa"><span></span></div>
+                        <div class="promo"><p>Graduarme el proximo año</p><h2>NAVIDAD 2026</h2></div>
+                        <div class="caja"><span></span><span></span></div>
+                    </div>
+                    <!-- Regalo 3 -->
+                    <div class="regalo3 regalo-amarillo">
+                        <div class="tapa"><span></span></div>
+                        <div class="promo"><p>Un año nuevo prospero</p><h2>NAVIDAD 2026</h2></div>
+                        <div class="caja"><span></span><span></span></div>
+                    </div>
+                    <!-- Regalo 4 -->
+                    <div class="regalo4 regalo-verde">
+                        <div class="tapa"><span></span></div>
+                        <div class="promo"><p>Salud</p><h2>NAVIDAD 2026</h2></div>
+                        <div class="caja"><span></span><span></span></div>
+                    </div>
+                    <!-- Regalo 5 -->
+                    <div class="regalo5 regalo-morado">
+                        <div class="tapa"><span></span></div>
+                        <div class="promo"><p>Poder iniciar un emprendimiento</p><h2>NAVIDAD 2026</h2></div>
+                        <div class="caja"><span></span><span></span></div>
+                    </div>
+                </div>
+            </main>
+
+        </div> 
+
+        <!-- 4. PIE DE PAGINA (Ancho total del contenedor principal, color amarillo) -->
+        <footer class="pie-pagina">
+            <p>pie de pagina</p>
+        </footer>
+
+    </div> 
+
+</body>
+</html>
